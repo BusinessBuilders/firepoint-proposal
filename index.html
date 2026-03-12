@@ -190,14 +190,22 @@
               <p class="pricing-card__audience">Best for a focused first upgrade.</p>
               <ul>
                 <li>Single high-impact landing page</li>
+                <li>Custom hero section with premium proposal styling</li>
+                <li>Services and positioning section</li>
+                <li>Pricing quote presentation</li>
+                <li>Contact / CTA section</li>
+                <li>Mobile responsive design</li>
                 <li>SEO foundation and metadata setup</li>
-                <li>Refined messaging structure</li>
-                <li>Visual direction with premium typography</li>
-                <li>Core CTA and inquiry flow</li>
+                <li>Your brand colors, logo, and content integrated</li>
               </ul>
-              <a class="button button--ghost" href="#final-cta"
-                >Choose Foundation</a
+              <button
+                class="button button--ghost"
+                type="button"
+                data-contact-trigger
+                data-tier="Foundation"
               >
+                Choose Foundation
+              </button>
             </article>
 
             <article
@@ -212,15 +220,23 @@
               </p>
               <p class="pricing-card__audience">Best for a stronger flagship presence.</p>
               <ul>
-                <li>Expanded multi-section proposal preview</li>
+                <li>Everything in Foundation, plus:</li>
+                <li>Expanded multi-section website structure</li>
+                <li>Lead-focused contact and inquiry flow</li>
+                <li>Google Search Console submission</li>
                 <li>AI discoverability positioning and content framing</li>
-                <li>Tailored visual system and hierarchy</li>
-                <li>Strategic pricing and offer presentation</li>
-                <li>Refined motion, proof, and FAQ treatment</li>
+                <li>Enhanced SEO page structure</li>
+                <li>Social proof, FAQ, and trust sections</li>
+                <li>Tailored visual system and stronger hierarchy</li>
               </ul>
-              <a class="button button--primary" href="#final-cta"
-                >Choose Flagship</a
+              <button
+                class="button button--primary"
+                type="button"
+                data-contact-trigger
+                data-tier="Flagship"
               >
+                Choose Flagship
+              </button>
             </article>
 
             <article class="pricing-card" data-reveal="fade-up">
@@ -231,14 +247,22 @@
               </p>
               <p class="pricing-card__audience">Best for the most bespoke presentation path.</p>
               <ul>
-                <li>Advanced concept system and bespoke layouts</li>
+                <li>Everything in Flagship, plus:</li>
+                <li>Advanced custom layout and section design</li>
                 <li>Higher-fidelity storytelling and brand depth</li>
-                <li>Expanded content architecture</li>
-                <li>Presentation-ready polish for major opportunities</li>
+                <li>Expanded page architecture and content strategy</li>
+                <li>Premium motion and presentation polish</li>
+                <li>Custom social / proof / authority elements</li>
+                <li>Most bespoke design direction and build path</li>
               </ul>
-              <a class="button button--ghost" href="#final-cta"
-                >Choose Signature</a
+              <button
+                class="button button--ghost"
+                type="button"
+                data-contact-trigger
+                data-tier="Signature"
               >
+                Choose Signature
+              </button>
             </article>
           </div>
         </section>
@@ -404,6 +428,29 @@
           </div>
         </section>
       </main>
+    </div>
+
+    <div class="contact-modal" id="contact-modal" hidden>
+      <div class="contact-modal__backdrop" data-contact-close></div>
+      <div class="contact-modal__card" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+        <button class="contact-modal__close" type="button" aria-label="Close" data-contact-close>
+          ×
+        </button>
+        <p class="eyebrow">Next step</p>
+        <h3 id="contact-modal-title">Choose how to connect</h3>
+        <p class="contact-modal__copy">
+          Talk through the <span data-contact-tier>selected</span> tier by phone or start an email.
+        </p>
+        <div class="contact-modal__actions">
+          <a class="contact-option" href="tel:7742441878" data-contact-call>Call 774-244-1878</a>
+          <a
+            class="contact-option contact-option--email"
+            href="mailto:donovan@business-builder.online"
+            data-contact-email
+            >Email Donovan</a
+          >
+        </div>
+      </div>
     </div>
 
     <script src="main.js"></script>

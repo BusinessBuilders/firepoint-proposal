@@ -1,6 +1,11 @@
 const revealElements = [...document.querySelectorAll("[data-reveal]")];
 const parallaxElements = [...document.querySelectorAll("[data-parallax]")];
 const faqButtons = [...document.querySelectorAll("[data-faq-button]")];
+const contactTriggers = [...document.querySelectorAll("[data-contact-trigger]")];
+const contactModal = document.getElementById("contact-modal");
+const contactTier = document.querySelector("[data-contact-tier]");
+const contactEmail = document.querySelector("[data-contact-email]");
+const contactClosers = [...document.querySelectorAll("[data-contact-close]")];
 const heroTablet = document.querySelector(".js-hero-tablet");
 
 revealElements.forEach((element, index) => {
@@ -77,4 +82,37 @@ faqButtons.forEach((button) => {
       item?.classList.add("is-open");
     }
   });
+});
+
+const closeContactModal = () => {
+  if (!contactModal) return;
+  contactModal.hidden = true;
+  document.body.style.overflow = "";
+};
+
+contactTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const tier = trigger.dataset.tier || "selected";
+    if (contactTier) contactTier.textContent = tier;
+    if (contactEmail) {
+      const subject = encodeURIComponent(`Firepoint Proposal - ${tier}`);
+      const body = encodeURIComponent(
+        `Hi Donovan,\n\nI'm interested in the ${tier} tier for the Firepoint proposal. I'd like to talk through the details.\n`
+      );
+      contactEmail.href = `mailto:donovan@business-builder.online?subject=${subject}&body=${body}`;
+    }
+
+    if (contactModal) {
+      contactModal.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+  });
+});
+
+contactClosers.forEach((closer) => {
+  closer.addEventListener("click", closeContactModal);
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeContactModal();
 });
