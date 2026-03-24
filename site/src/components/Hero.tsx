@@ -61,8 +61,9 @@ export default function Hero() {
       className="relative min-h-[100svh] overflow-hidden bg-[linear-gradient(180deg,#efe7db_0%,#efe9de_28%,#172339_100%)] text-cream"
     >
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(243,238,229,0.92),rgba(243,238,229,0.66)_24%,rgba(243,238,229,0)_46%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(118deg,rgba(243,238,229,0.24)_0%,rgba(243,238,229,0.08)_26%,rgba(22,25,46,0)_44%,rgba(10,18,30,0.9)_68%,rgba(7,12,22,1)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(243,238,229,0.92),rgba(243,238,229,0.78)_22%,rgba(243,238,229,0.05)_42%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,22,36,0.34)_0%,rgba(14,22,36,0.14)_18%,rgba(14,22,36,0)_34%,rgba(14,22,36,0)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(118deg,rgba(243,238,229,0.12)_0%,rgba(243,238,229,0.04)_24%,rgba(22,25,46,0)_40%,rgba(10,18,30,0.9)_68%,rgba(7,12,22,1)_100%)]" />
         <div
           ref={glowRef}
           className="absolute right-[-12rem] top-[12rem] h-[32rem] w-[32rem] rounded-full bg-gold/12 blur-[100px]"
@@ -100,7 +101,7 @@ export default function Hero() {
               alt=""
               width={540}
               height={540}
-              className="h-auto w-[26rem] object-contain brightness-[2.8] saturate-0"
+              className="h-auto w-[26rem] object-contain sepia-[0.6] hue-rotate-[330deg] saturate-[1.8] brightness-[1.65] contrast-[1.1] opacity-80"
               aria-hidden="true"
             />
           </div>
@@ -112,21 +113,21 @@ export default function Hero() {
           <div className="relative z-10">
             <div ref={brandRef}>
               <p className="eyebrow text-gold">Fire protection consulting</p>
-              <p className="mt-4 font-body text-[0.8rem] uppercase tracking-[0.42em] text-navy/55 lg:text-cream/62">
+              <p className="mt-5 font-body text-[0.8rem] uppercase tracking-[0.42em] text-cream/82">
                 Firepoint Consulting
               </p>
             </div>
 
             <h1
               ref={headlineRef}
-              className="mt-5 font-display text-[clamp(3.6rem,8vw,8.25rem)] font-medium leading-[0.92] tracking-[-0.055em] text-navy lg:text-cream"
+              className="mt-6 max-w-[8.7ch] font-display text-[clamp(3rem,6.2vw,5.8rem)] font-medium leading-[0.94] tracking-[-0.05em] text-cream [text-shadow:0_14px_40px_rgba(16,25,46,0.24)]"
             >
               Fire code clarity before the first review.
             </h1>
 
             <p
               ref={subtextRef}
-              className="mt-6 max-w-[34ch] text-[1.02rem] leading-relaxed text-navy/70 lg:text-cream/72"
+              className="mt-6 max-w-[34ch] text-[1.02rem] leading-relaxed text-cream/82"
             >
               Independent fire code expertise for developers, architects, and fire
               departments. Direct review. Fewer surprises. Faster approval paths.
@@ -135,13 +136,13 @@ export default function Hero() {
             <div ref={ctasRef} className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center px-8 py-4 rounded-full bg-navy text-cream font-medium text-[0.95rem] transition-all duration-300 hover:-translate-y-1 hover:bg-navy-soft hover:shadow-[0_12px_30px_rgba(16,23,34,0.22)] lg:bg-gold lg:text-navy"
+                className="inline-flex items-center rounded-full bg-gold px-8 py-4 text-[0.95rem] font-medium text-navy transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(160,110,65,0.35)]"
               >
                 Start the conversation
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center px-8 py-4 rounded-full border border-navy/20 bg-white/45 text-navy font-medium text-[0.95rem] transition-all duration-300 hover:-translate-y-1 hover:bg-white/75 lg:border-cream/22 lg:bg-white/8 lg:text-cream"
+                className="inline-flex items-center rounded-full border border-cream/26 bg-white/8 px-8 py-4 text-[0.95rem] font-medium text-cream transition-all duration-300 hover:-translate-y-1 hover:bg-white/14"
               >
                 Review services
               </a>
@@ -149,7 +150,7 @@ export default function Hero() {
 
             <p
               ref={proofRef}
-              className="mt-8 max-w-[28rem] border-l border-gold/55 pl-5 text-sm leading-relaxed text-navy/62 lg:text-cream/62"
+              className="mt-8 max-w-[28rem] border-l border-gold/55 pl-5 text-sm leading-relaxed text-cream/70"
             >
               Former AHJ. Twelve years in fire protection. Work shaped by what reviewers actually approve, not what consultants assume.
             </p>
@@ -174,7 +175,7 @@ export default function Hero() {
                   alt=""
                   width={280}
                   height={280}
-                  className="h-auto w-[14rem] object-contain brightness-[2.7] saturate-0"
+                  className="h-auto w-[14rem] object-contain sepia-[0.55] hue-rotate-[330deg] saturate-[1.7] brightness-[1.5] contrast-[1.08] opacity-80"
                   aria-hidden="true"
                 />
               </div>

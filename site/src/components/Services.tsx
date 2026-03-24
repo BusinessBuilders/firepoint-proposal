@@ -35,6 +35,8 @@ export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLElement | null)[]>([]);
+  const numberRefs = useRef<(HTMLParagraphElement | null)[]>([]);
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(
     () => {
@@ -53,16 +55,45 @@ export default function Services() {
       });
 
       gsap.from(cardsRef.current.filter(Boolean), {
-        y: 36,
+        y: 24,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.75,
         ease: "power2.out",
-        stagger: 0.12,
+        stagger: 0.08,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 60%",
           once: true,
         },
+      });
+
+      numberRefs.current.filter(Boolean).forEach((number, i) => {
+        gsap.from(number, {
+          x: 72,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: cardsRef.current[i],
+            start: "top 82%",
+            once: true,
+          },
+        });
+      });
+
+      contentRefs.current.filter(Boolean).forEach((content, i) => {
+        gsap.from(content, {
+          y: 18,
+          opacity: 0,
+          duration: 0.7,
+          ease: "power2.out",
+          delay: 0.06,
+          scrollTrigger: {
+            trigger: cardsRef.current[i],
+            start: "top 82%",
+            once: true,
+          },
+        });
       });
     },
     { scope: sectionRef }
@@ -87,10 +118,14 @@ export default function Services() {
             ref={(el) => { cardsRef.current[i] = el; }}
             className="grid gap-4 border-b border-navy/10 py-7 md:grid-cols-[5rem_1fr] md:gap-8"
           >
-            <p className="font-display text-[2.2rem] leading-none text-gold/70">
+            <p
+              ref={(el) => { numberRefs.current[i] = el; }}
+              data-fly-in="right"
+              className="font-display text-[2.2rem] leading-none text-gold/70 will-change-transform"
+            >
               0{i + 1}
             </p>
-            <div>
+            <div ref={(el) => { contentRefs.current[i] = el; }}>
               <h3 className="font-body text-[1.2rem] font-medium text-navy">
                 {service.title}
               </h3>

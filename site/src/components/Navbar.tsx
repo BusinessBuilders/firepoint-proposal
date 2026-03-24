@@ -53,13 +53,15 @@ export default function Navbar() {
     >
       <nav aria-label="Main navigation" className="flex items-center justify-between max-w-[1320px] mx-auto px-5 py-4 sm:px-8 lg:px-10">
         <div className="flex items-center gap-3">
-          <Image
-            src="/assets/firepoint/translogo.png"
-            alt="Fire Point Consulting logo"
-            width={40}
-            height={40}
-            className="brightness-[2.8] contrast-[1.15]"
-          />
+          <div className="flex h-11 w-11 items-center justify-center rounded-[0.9rem] border border-cream/10 bg-navy shadow-[0_12px_28px_rgba(10,16,27,0.22)]">
+            <Image
+              src="/assets/firepoint/LogoNavy.png"
+              alt="Fire Point Consulting logo"
+              width={28}
+              height={28}
+              className="h-auto w-7 object-contain"
+            />
+          </div>
           <span className="font-body text-[0.76rem] font-medium uppercase tracking-[0.28em] text-cream">
             Firepoint Consulting
           </span>

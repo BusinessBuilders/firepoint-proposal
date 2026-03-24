@@ -59,30 +59,32 @@ export default function StatsBar() {
   );
 
   return (
-    <section ref={sectionRef} className="sand-section">
+    <section ref={sectionRef} className="sand-section sand-section--tight">
+      <div className="rounded-[2rem] border border-navy/8 bg-white/28 px-6 py-10 backdrop-blur-sm sm:px-10 lg:px-14">
       <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12">
         <div className="text-center">
-          <p className="font-display text-[clamp(3rem,5vw,4.5rem)] font-medium text-navy">
+          <p className="font-display text-[clamp(3.2rem,5vw,4.8rem)] font-medium text-navy">
             <span ref={(el) => { numberRefs.current[0] = el; }}>0</span>
           </p>
-          <p className="text-sm text-navy/60 mt-1">{stats[0].label}</p>
+          <p className="mt-1 text-sm text-navy/60">{stats[0].label}</p>
         </div>
         <div className="hidden sm:block w-px h-12 bg-gold/30" />
         <div className="block sm:hidden h-px w-16 bg-gold/30" />
         <div className="text-center">
-          <p className="font-display text-[clamp(3rem,5vw,4.5rem)] font-medium text-navy">
+          <p className="font-display text-[clamp(3.2rem,5vw,4.8rem)] font-medium text-navy">
             <span ref={(el) => { numberRefs.current[1] = el; }}>0</span>
           </p>
-          <p className="text-sm text-navy/60 mt-1">{stats[1].label}</p>
+          <p className="mt-1 text-sm text-navy/60">{stats[1].label}</p>
         </div>
         <div className="hidden sm:block w-px h-12 bg-gold/30" />
         <div className="block sm:hidden h-px w-16 bg-gold/30" />
         <div className="text-center">
-          <p className="font-display text-[clamp(3rem,5vw,4.5rem)] font-medium text-navy">
+          <p className="font-display text-[clamp(3.2rem,5vw,4.8rem)] font-medium text-navy">
             <span ref={(el) => { numberRefs.current[2] = el; }}>0</span>
           </p>
-          <p className="text-sm text-navy/60 mt-1">{stats[2].label}</p>
+          <p className="mt-1 text-sm text-navy/60">{stats[2].label}</p>
         </div>
+      </div>
       </div>
     </section>
   );
