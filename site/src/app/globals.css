@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* ─── Base ─── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Brand Tokens ─── */
+
+@theme {
+  --color-sand: #F3EEE5;
+  --color-navy: #16192E;
+  --color-navy-soft: #1b3146;
+  --color-gold: #A06E41;
+  --color-gold-soft: rgba(160, 110, 65, 0.2);
+  --color-cream: #FCF9F4;
+  --color-stone: #d9d0c4;
+  --color-ink: #101722;
+
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+
+  --shadow-card: 0 24px 50px rgba(16, 23, 34, 0.12);
+  --shadow-soft: 0 30px 60px rgba(17, 34, 53, 0.08);
+
+  /* Font families — wired to next/font CSS variables injected on <html> */
+  --font-display: var(--font-source-serif);
+  --font-body: var(--font-dm-sans);
+}
+
+/* ─── Scroll Progress Bar ─── */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-gold);
+  transform-origin: left;
+  animation: scroll-grow linear;
+  animation-timeline: scroll();
+  z-index: 9999;
+}
+
+@keyframes scroll-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ─── Utility Classes ─── */
+
+.eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+.navy-card {
+  background: var(--color-navy);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  color: var(--color-cream);
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 4rem 3.5rem;
+}
+
+.sand-section {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 5rem 3.5rem;
+}
+
+/* ─── Hero Card Float Animation ─── */
+
+.hero-card {
+  animation: hero-float 4s ease-in-out infinite;
+}
+
+.hero-card:nth-child(1) { animation-duration: 3.5s; animation-delay: 0s; }
+.hero-card:nth-child(2) { animation-duration: 4s; animation-delay: 0.6s; }
+.hero-card:nth-child(3) { animation-duration: 4.5s; animation-delay: 1.2s; }
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+/* ─── Reduced Motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Mobile Adjustments ─── */
+
+@media (max-width: 640px) {
+  .navy-card {
+    margin-inline: 1rem;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .sand-section {
+    padding: 3rem 1.25rem;
+  }
+}
