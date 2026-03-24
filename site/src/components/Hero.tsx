@@ -14,6 +14,7 @@ export default function Hero() {
   const visualRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
+  const bgLogoRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -27,6 +28,25 @@ export default function Hero() {
       tl.from(ctasRef.current, { y: 24, opacity: 0, duration: 0.75 }, "-=0.55");
       tl.from(proofRef.current, { y: 18, opacity: 0, duration: 0.65 }, "-=0.45");
       tl.from(visualRef.current, { scale: 0.96, opacity: 0, duration: 1.35 }, "-=1.1");
+
+      // Logo: fade in tiny → spring up big → settle to normal
+      if (bgLogoRef.current) {
+        gsap.set(bgLogoRef.current, { scale: 0.08, opacity: 0 });
+        gsap.to(bgLogoRef.current, {
+          scale: 1.12,
+          opacity: 1,
+          duration: 2.2,
+          ease: "power2.out",
+          delay: 0.3,
+          onComplete: () => {
+            gsap.to(bgLogoRef.current, {
+              scale: 1,
+              duration: 0.7,
+              ease: "power2.inOut",
+            });
+          },
+        });
+      }
 
       gsap.to(frameRef.current, {
         yPercent: -12,
@@ -84,7 +104,7 @@ export default function Hero() {
           <div className="absolute left-[24%] top-[20%] h-[60%] w-[42%] border border-cream/10" />
           <div className="absolute bottom-[14%] left-[18%] h-px w-[48%] bg-gradient-to-r from-gold/0 via-gold/70 to-gold/0" />
           <div className="absolute right-[12%] top-[18%] h-[54%] w-px bg-gradient-to-b from-cream/0 via-cream/35 to-cream/0" />
-          <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+          <div ref={bgLogoRef} className="absolute inset-0 flex items-center justify-center overflow-hidden">
             <Image
               src="/assets/firepoint/fp-bg-logo.png"
               alt=""
