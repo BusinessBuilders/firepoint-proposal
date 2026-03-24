@@ -95,13 +95,13 @@ export default function Hero() {
               Review instincts shaped by ten years on the approving side of the table.
             </p>
           </div>
-          <div className="absolute left-[10%] top-[10%] opacity-[0.08]">
+          <div className="absolute left-[10%] top-[10%]">
             <Image
               src="/assets/firepoint/LogoNavy.png"
               alt=""
               width={540}
               height={540}
-              className="h-auto w-[26rem] object-contain sepia-[0.6] hue-rotate-[330deg] saturate-[1.8] brightness-[1.65] contrast-[1.1] opacity-80"
+              className="h-auto w-[26rem] object-contain opacity-[0.52] saturate-[1.18] brightness-[1.18] contrast-[1.08] drop-shadow-[0_12px_40px_rgba(160,110,65,0.18)]"
               aria-hidden="true"
             />
           </div>
@@ -169,13 +169,13 @@ export default function Hero() {
                   Former AHJ.
                 </p>
               </div>
-              <div className="absolute right-[-1.5rem] top-5 opacity-[0.08]">
+              <div className="absolute right-[-1.5rem] top-5">
                 <Image
                   src="/assets/firepoint/LogoNavy.png"
                   alt=""
                   width={280}
                   height={280}
-                  className="h-auto w-[14rem] object-contain sepia-[0.55] hue-rotate-[330deg] saturate-[1.7] brightness-[1.5] contrast-[1.08] opacity-80"
+                  className="h-auto w-[14rem] object-contain opacity-[0.38] saturate-[1.14] brightness-[1.14] contrast-[1.06]"
                   aria-hidden="true"
                 />
               </div>
