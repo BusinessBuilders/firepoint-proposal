@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import StatsBar from "@/components/StatsBar";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import WhyFirepoint from "@/components/WhyFirepoint";
@@ -17,7 +16,6 @@ export default function Home() {
       <SmoothScroller>
         <main>
           <Hero />
-          <StatsBar />
           <Services />
           <About />
           <WhyFirepoint />

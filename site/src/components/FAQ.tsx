@@ -23,14 +23,12 @@ const faqs = [
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const accentRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      /* ── Section fade up ── */
       gsap.from(sectionRef.current, {
         y: 40,
         opacity: 0,
@@ -43,20 +41,6 @@ export default function FAQ() {
         },
       });
 
-      /* ── Gold accent line ── */
-      gsap.from(accentRef.current, {
-        scaleX: 0,
-        transformOrigin: "left",
-        duration: 0.6,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: accentRef.current,
-          start: "top 85%",
-          once: true,
-        },
-      });
-
-      /* ── FAQ items stagger in ── */
       gsap.from(itemRefs.current.filter(Boolean), {
         y: 20,
         opacity: 0,
@@ -74,28 +58,27 @@ export default function FAQ() {
   );
 
   return (
-    <section id="faq" ref={sectionRef} className="sand-section">
+    <section id="faq" ref={sectionRef} className="navy-card">
       <p className="eyebrow mb-4">FAQ</p>
-      <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-medium text-navy mt-2">
-        Common questions.
+      <h2 className="mt-3 font-display text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[0.96] tracking-[-0.04em] text-cream">
+        Practical questions, direct answers.
       </h2>
-      <div
-        ref={accentRef}
-        className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent mt-4 mb-10"
-      />
+      <p className="mt-4 max-w-[34rem] text-[1rem] leading-relaxed text-cream/66">
+        The site should answer the first pass quickly. The real work starts once the project details are on the table.
+      </p>
       <div className="mt-10 flex flex-col gap-3">
         {faqs.map((faq, index) => (
           <div
             key={index}
             ref={(el) => { itemRefs.current[index] = el; }}
-            className="bg-white/70 border border-navy/[0.08] rounded-[18px] overflow-hidden"
+            className="overflow-hidden border-b border-cream/12"
           >
             <button
               aria-expanded={openIndex === index}
               onClick={() =>
                 setOpenIndex(openIndex === index ? null : index)
               }
-              className="w-full text-left p-5 font-body font-medium text-navy flex justify-between items-center"
+              className="flex w-full items-center justify-between py-5 text-left font-body font-medium text-cream"
             >
               {faq.question}
               <span
@@ -113,7 +96,7 @@ export default function FAQ() {
               }`}
             >
               <div className="overflow-hidden">
-                <p className="px-5 pb-5 text-navy/70 text-[0.95rem] leading-relaxed">
+                <p className="pb-5 pr-10 text-[0.98rem] leading-relaxed text-cream/66">
                   {faq.answer}
                 </p>
               </div>

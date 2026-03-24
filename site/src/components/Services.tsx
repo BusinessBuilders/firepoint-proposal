@@ -34,49 +34,33 @@ const services = [
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
-  const accentRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLElement | null)[]>([]);
 
   useGSAP(
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      /* ── Navy card container fade up ── */
-      gsap.from(sectionRef.current, {
-        y: 40,
+      gsap.from(headingRef.current, {
+        y: 30,
+        opacity: 0,
+        duration: 0.85,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          once: true,
+        },
+      });
+
+      gsap.from(cardsRef.current.filter(Boolean), {
+        y: 36,
         opacity: 0,
         duration: 0.8,
         ease: "power2.out",
+        stagger: 0.12,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 85%",
-          once: true,
-        },
-      });
-
-      /* ── Gold accent line scale in ── */
-      gsap.from(accentRef.current, {
-        scaleX: 0,
-        transformOrigin: "left",
-        duration: 0.6,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: accentRef.current,
-          start: "top 85%",
-          once: true,
-        },
-      });
-
-      /* ── Service cards stagger in ── */
-      gsap.from(cardsRef.current.filter(Boolean), {
-        y: 40,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power2.out",
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 65%",
+          start: "top 60%",
           once: true,
         },
       });
@@ -85,32 +69,38 @@ export default function Services() {
   );
 
   return (
-    <section id="services" ref={sectionRef} className="navy-card">
-      <div ref={headingRef}>
+    <section id="services" ref={sectionRef} className="sand-section sand-section--tight">
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,18rem)_1fr] lg:gap-16">
+      <div ref={headingRef} className="lg:sticky lg:top-28 lg:self-start">
         <p className="eyebrow">What we do</p>
-        <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-medium text-cream mt-2">
-          Expertise across fire protection.
+        <h2 className="mt-3 font-display text-[clamp(2.5rem,4.3vw,4.6rem)] font-medium leading-[0.95] tracking-[-0.04em] text-navy">
+          Expertise built for the approval path.
         </h2>
-        <div
-          ref={accentRef}
-          className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent mt-4 mb-10"
-        />
+        <p className="mt-5 max-w-[17rem] text-[1rem] leading-relaxed text-navy/62">
+          Every service is framed around one outcome: cleaner reviews, fewer delays, and clearer code decisions.
+        </p>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="border-t border-navy/10">
         {services.map((service, i) => (
           <article
             key={i}
             ref={(el) => { cardsRef.current[i] = el; }}
-            className="bg-cream/[0.08] border border-cream/[0.1] border-l-2 border-l-gold/60 rounded-[24px] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-l-4 hover:shadow-[0_8px_30px_rgba(160,110,65,0.15)]"
+            className="grid gap-4 border-b border-navy/10 py-7 md:grid-cols-[5rem_1fr] md:gap-8"
           >
-            <h3 className="font-body text-lg font-medium text-cream mb-2">
-              {service.title}
-            </h3>
-            <p className="text-cream/70 text-[0.95rem] leading-relaxed">
-              {service.description}
+            <p className="font-display text-[2.2rem] leading-none text-gold/70">
+              0{i + 1}
             </p>
+            <div>
+              <h3 className="font-body text-[1.2rem] font-medium text-navy">
+                {service.title}
+              </h3>
+              <p className="mt-3 max-w-[42rem] text-[1rem] leading-relaxed text-navy/65">
+                {service.description}
+              </p>
+            </div>
           </article>
         ))}
+      </div>
       </div>
     </section>
   );

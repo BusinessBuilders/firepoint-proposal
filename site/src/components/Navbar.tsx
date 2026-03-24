@@ -49,18 +49,18 @@ export default function Navbar() {
   return (
     <header
       ref={navRef}
-      className="sticky top-0 z-50 backdrop-blur-md bg-sand/80"
+      className="sticky top-0 z-50 border-b border-cream/8 bg-[rgba(10,16,27,0.38)] backdrop-blur-xl"
     >
-      <nav aria-label="Main navigation" className="flex items-center justify-between max-w-[1280px] mx-auto px-6 py-4">
+      <nav aria-label="Main navigation" className="flex items-center justify-between max-w-[1320px] mx-auto px-5 py-4 sm:px-8 lg:px-10">
         <div className="flex items-center gap-3">
           <Image
             src="/assets/firepoint/translogo.png"
             alt="Fire Point Consulting logo"
             width={40}
             height={40}
-            className="brightness-[0.3] contrast-[1.5]"
+            className="brightness-[2.8] contrast-[1.15]"
           />
-          <span className="font-body font-medium text-navy">
+          <span className="font-body text-[0.76rem] font-medium uppercase tracking-[0.28em] text-cream">
             Firepoint Consulting
           </span>
         </div>
@@ -74,7 +74,7 @@ export default function Navbar() {
                 className={`relative pb-1 transition-colors duration-200 ${
                   activeSection === id
                     ? "text-gold"
-                    : "text-navy/70 hover:text-gold"
+                    : "text-cream/66 hover:text-gold"
                 }`}
               >
                 {label}
@@ -96,17 +96,17 @@ export default function Navbar() {
           aria-expanded={menuOpen}
         >
           <span
-            className={`block w-5 h-[2px] bg-navy transition-all duration-300 ${
+            className={`block w-5 h-[2px] bg-cream transition-all duration-300 ${
               menuOpen ? "rotate-45 translate-y-[7px]" : ""
             }`}
           />
           <span
-            className={`block w-5 h-[2px] bg-navy transition-all duration-300 ${
+            className={`block w-5 h-[2px] bg-cream transition-all duration-300 ${
               menuOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block w-5 h-[2px] bg-navy transition-all duration-300 ${
+            className={`block w-5 h-[2px] bg-cream transition-all duration-300 ${
               menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
             }`}
           />
@@ -119,7 +119,7 @@ export default function Navbar() {
           menuOpen ? "max-h-60" : "max-h-0"
         }`}
       >
-        <ul className="flex flex-col gap-1 px-6 pb-4">
+        <ul className="flex flex-col gap-1 px-5 pb-4 sm:px-8">
           {navLinks.map(({ href, label, id }) => (
             <li key={id}>
               <a
@@ -128,7 +128,7 @@ export default function Navbar() {
                 className={`block py-3 text-base font-medium transition-colors ${
                   activeSection === id
                     ? "text-gold"
-                    : "text-navy/70 hover:text-gold"
+                    : "text-cream/70 hover:text-gold"
                 }`}
               >
                 {label}

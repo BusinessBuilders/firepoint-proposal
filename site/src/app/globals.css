@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--color-sand);
 }
 
 /* ─── Brand Tokens ─── */
@@ -69,15 +70,20 @@ html {
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card);
   color: var(--color-cream);
-  max-width: 1280px;
+  width: min(calc(100% - 1.6rem), 1280px);
   margin-inline: auto;
-  padding: 4rem 3.5rem;
+  padding: clamp(3rem, 6vw, 5.2rem) clamp(1.3rem, 3vw, 3.5rem);
 }
 
 .sand-section {
-  max-width: 1280px;
+  width: min(calc(100% - 1.6rem), 1280px);
   margin-inline: auto;
-  padding: 5rem 3.5rem;
+  padding: clamp(3.2rem, 7vw, 6rem) 0;
+}
+
+.sand-section--tight {
+  padding-top: clamp(2.4rem, 5vw, 4.5rem);
+  padding-bottom: clamp(2.4rem, 5vw, 4.5rem);
 }
 
 /* ─── Hero Card Float Animation ─── */
@@ -112,11 +118,12 @@ html {
 
 @media (max-width: 640px) {
   .navy-card {
-    margin-inline: 1rem;
-    padding: 2.5rem 1.5rem;
+    width: min(calc(100% - 1rem), 1280px);
+    padding: 2.6rem 1.15rem;
   }
 
   .sand-section {
-    padding: 3rem 1.25rem;
+    width: min(calc(100% - 1rem), 1280px);
+    padding: 3rem 0;
   }
 }

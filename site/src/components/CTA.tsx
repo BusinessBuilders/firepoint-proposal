@@ -62,19 +62,22 @@ export default function CTA() {
     <section
       id="contact"
       ref={sectionRef}
-      className="navy-card"
+      className="sand-section sand-section--tight"
+    >
+      <div
+      className="overflow-hidden rounded-[2rem] border border-navy/10 bg-[linear-gradient(140deg,#172339_0%,#0c1422_68%,#0a111d_100%)] px-6 py-12 shadow-[0_30px_80px_rgba(10,18,30,0.22)] sm:px-10 lg:px-14 lg:py-16"
       style={{
-        background:
-          "radial-gradient(circle at top right, rgba(160,110,65,0.25), transparent 34%), linear-gradient(145deg, #112235, #1b4273)",
+        backgroundImage:
+          "radial-gradient(circle at top right, rgba(160,110,65,0.22), transparent 30%), radial-gradient(circle at 15% 10%, rgba(255,255,255,0.06), transparent 20%), linear-gradient(145deg, #112235, #1b4273)",
       }}
     >
-      <div ref={contentRef} className="text-center max-w-2xl mx-auto">
+      <div ref={contentRef} className="mx-auto max-w-3xl text-center">
         <p className="eyebrow mb-4">Contact</p>
-        <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-medium text-cream mt-2">
-          Let&apos;s talk fire code.
+        <h2 className="mt-3 font-display text-[clamp(2.7rem,4.6vw,5rem)] font-medium leading-[0.94] tracking-[-0.04em] text-cream">
+          Bring the project in before review gets expensive.
         </h2>
-        <p className="text-cream/70 text-[1.05rem] leading-relaxed mt-4">
-          Reach out directly. No forms, no gatekeepers.
+        <p className="mt-5 text-[1.05rem] leading-relaxed text-cream/70">
+          Reach out directly. No forms, no gatekeepers, no handoff between layers.
         </p>
         <div
           ref={buttonsRef}
@@ -82,17 +85,18 @@ export default function CTA() {
         >
           <a
             href="#"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold/40 text-cream font-medium transition-all hover:-translate-y-0.5 hover:border-gold/70"
+            className="inline-flex items-center gap-2 rounded-full border border-gold/40 px-6 py-3 text-cream font-medium transition-all hover:-translate-y-0.5 hover:border-gold/70"
           >
             LinkedIn
           </a>
           <a
             href="#"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold/40 text-cream font-medium transition-all hover:-translate-y-0.5 hover:border-gold/70"
+            className="inline-flex items-center gap-2 rounded-full border border-gold/40 px-6 py-3 text-cream font-medium transition-all hover:-translate-y-0.5 hover:border-gold/70"
           >
             Facebook
           </a>
         </div>
+      </div>
       </div>
     </section>
   );

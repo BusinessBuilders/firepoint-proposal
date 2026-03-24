@@ -23,15 +23,12 @@ const blocks = [
 
 export default function WhyFirepoint() {
   const sectionRef = useRef<HTMLElement>(null);
-  const accentRef = useRef<HTMLDivElement>(null);
   const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const borderRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      /* ── Navy card fade up ── */
       gsap.from(sectionRef.current, {
         y: 40,
         opacity: 0,
@@ -44,24 +41,10 @@ export default function WhyFirepoint() {
         },
       });
 
-      /* ── Gold accent line scale in ── */
-      gsap.from(accentRef.current, {
-        scaleX: 0,
-        transformOrigin: "left",
-        duration: 0.6,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: accentRef.current,
-          start: "top 85%",
-          once: true,
-        },
-      });
-
-      /* ── Blocks stagger from left ── */
       gsap.from(blockRefs.current.filter(Boolean), {
-        x: -30,
+        y: 26,
         opacity: 0,
-        duration: 0.7,
+        duration: 0.78,
         ease: "power2.out",
         stagger: 0.15,
         scrollTrigger: {
@@ -71,54 +54,33 @@ export default function WhyFirepoint() {
         },
       });
 
-      /* ── Gold top border scale in ── */
-      borderRefs.current.filter(Boolean).forEach((border, i) => {
-        gsap.from(border, {
-          scaleX: 0,
-          transformOrigin: "left",
-          duration: 0.8,
-          ease: "power3.out",
-          delay: i * 0.15,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 65%",
-            once: true,
-          },
-        });
-      });
     },
     { scope: sectionRef }
   );
 
   return (
-    <section ref={sectionRef} className="navy-card">
+    <section ref={sectionRef} className="sand-section sand-section--tight">
       <p className="eyebrow">Why Fire Point</p>
-      <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-medium text-cream mt-2">
+      <h2 className="mt-3 font-display text-[clamp(2.4rem,4vw,4.2rem)] font-medium leading-[0.96] tracking-[-0.04em] text-navy">
         The difference is direct experience.
       </h2>
-      <div
-        ref={accentRef}
-        className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent mt-4 mb-10"
-      />
-      <div className="grid lg:grid-cols-3 gap-6 mt-10">
+      <p className="mt-5 max-w-[38rem] text-[1rem] leading-relaxed text-navy/62">
+        Firepoint works best when the room needs someone who can speak both the language of design teams and the instincts of the reviewer on the other side.
+      </p>
+      <div className="mt-12 grid gap-8 border-t border-navy/10 pt-8 lg:grid-cols-3">
         {blocks.map((block, i) => (
           <div
             key={i}
             ref={(el) => { blockRefs.current[i] = el; }}
-            className="pt-6 relative"
+            className="relative border-l border-gold/35 pl-5"
           >
-            {/* Animated gold top border */}
-            <div
-              ref={(el) => { borderRefs.current[i] = el; }}
-              className="absolute top-0 left-0 right-0 h-[2px] bg-gold/60"
-            />
-            <p className="font-display text-5xl text-cream/40 mb-3">
+            <p className="mb-4 font-display text-5xl text-gold/62">
               {block.number}
             </p>
-            <h3 className="font-body text-lg font-medium text-cream mb-2">
+            <h3 className="font-body text-lg font-medium text-navy mb-2">
               {block.title}
             </h3>
-            <p className="text-cream/70 text-[0.95rem] leading-relaxed">
+            <p className="text-navy/65 text-[0.98rem] leading-relaxed">
               {block.text}
             </p>
           </div>
