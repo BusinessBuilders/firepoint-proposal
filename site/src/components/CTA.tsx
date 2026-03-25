@@ -79,19 +79,21 @@ export default function CTA() {
         <p className="mt-5 max-w-[31rem] text-[1.05rem] leading-relaxed text-cream/70">
           Use the form to start the conversation. The field set matches the current FirePoint site, and the backend can be pointed at an external form service later without redesigning the UI.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[1.4rem] border border-cream/10 bg-white/6 p-5">
-            <p className="text-[0.72rem] uppercase tracking-[0.28em] text-gold/82">Email</p>
-            <a href="mailto:contact@firepointconsult.com" className="mt-3 block text-[1.05rem] text-cream hover:text-gold transition-colors">
-              contact@firepointconsult.com
-            </a>
-          </div>
-          <div className="rounded-[1.4rem] border border-cream/10 bg-white/6 p-5">
-            <p className="text-[0.72rem] uppercase tracking-[0.28em] text-gold/82">Phone</p>
-            <a href="tel:7742391458" className="mt-3 block text-[1.05rem] text-cream hover:text-gold transition-colors">
-              774-239-1458
-            </a>
-          </div>
+        <div className="mt-8 flex gap-4">
+          <a
+            href="mailto:contact@firepointconsult.com"
+            className="group inline-flex items-center gap-3 rounded-full border border-cream/10 bg-white/6 px-6 py-3 transition-all duration-200 hover:border-gold/40 hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(160,110,65,0.18)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-gold"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span className="text-[0.82rem] font-medium uppercase tracking-[0.18em] text-cream group-hover:text-gold transition-colors">Email</span>
+          </a>
+          <a
+            href="tel:7742391458"
+            className="group inline-flex items-center gap-3 rounded-full border border-cream/10 bg-white/6 px-6 py-3 transition-all duration-200 hover:border-gold/40 hover:bg-gold/10 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(160,110,65,0.18)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-gold"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.83-.83a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.27 16l-.35.92z"/></svg>
+            <span className="text-[0.82rem] font-medium uppercase tracking-[0.18em] text-cream group-hover:text-gold transition-colors">Call</span>
+          </a>
         </div>
         <p className="mt-6 max-w-[31rem] text-sm leading-relaxed text-cream/58">
           Recommended form service for a clean, ad-free frontend: Formspark. It keeps the custom UI, avoids embedded marketplace branding, and can be wired in later by replacing the form action.

@@ -49,22 +49,25 @@ export default function Navbar() {
   return (
     <header
       ref={navRef}
-      className="sticky top-0 z-50 border-b border-cream/8 bg-[rgba(10,16,27,0.38)] backdrop-blur-xl"
+      className="sticky top-0 z-50 border-b border-cream/8 backdrop-blur-xl" style={{background: "linear-gradient(to right, rgba(22,25,46,0.96) 0%, rgba(22,25,46,0.82) 40%, rgba(243,238,229,0.90) 100%)"}}
     >
       <nav aria-label="Main navigation" className="flex items-center justify-between max-w-[1320px] mx-auto px-5 py-4 sm:px-8 lg:px-10">
-        <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-[0.9rem] border border-cream/10 bg-navy shadow-[0_12px_28px_rgba(10,16,27,0.22)]">
-            <Image
-              src="/assets/firepoint/LogoNavy.png"
-              alt="Fire Point Consulting logo"
-              width={28}
-              height={28}
-              className="h-auto w-7 object-contain"
-            />
-          </div>
-          <span className="font-body text-[0.76rem] font-medium uppercase tracking-[0.28em] text-cream">
-            Firepoint Consulting
-          </span>
+        <div className="flex items-center gap-0">
+          <Image
+            src="/assets/firepoint/fp-logo-new.png"
+            alt="Fire Point Consulting logo"
+            width={36}
+            height={36}
+            className="h-auto w-9 object-contain"
+          />
+          <Image
+            src="/assets/firepoint/fp-wordmark.png"
+            alt="Firepoint Consulting"
+            width={160}
+            height={32}
+            className="h-auto w-[16rem] object-contain" style={{filter: "drop-shadow(0 0 0.5px currentColor) drop-shadow(0 0 0.5px currentColor) drop-shadow(0 0 0.5px currentColor)"}}
+          />
+          <span className="sr-only">Firepoint Consulting</span>
         </div>
 
         {/* Desktop nav links */}
@@ -76,8 +79,9 @@ export default function Navbar() {
                 className={`relative pb-1 transition-colors duration-200 ${
                   activeSection === id
                     ? "text-gold"
-                    : "text-cream/66 hover:text-gold"
+                    : "hover:text-gold"
                 }`}
+                style={activeSection === id ? {} : {color: "#F3EEE5"}}
               >
                 {label}
                 <span
