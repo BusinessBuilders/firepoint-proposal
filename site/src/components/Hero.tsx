@@ -99,11 +99,11 @@ export default function Hero() {
           className="absolute inset-y-0 right-0 w-full bg-[linear-gradient(155deg,rgba(31,53,88,0.84)_0%,rgba(20,36,58,0.96)_48%,rgba(8,13,25,1)_100%)]"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_68%_22%,rgba(160,110,65,0.28),transparent_22%),radial-gradient(circle_at_42%_72%,rgba(255,255,255,0.08),transparent_18%)]" />
-          <div className="absolute inset-0 opacity-[0.13] [background-image:linear-gradient(rgba(243,238,229,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(243,238,229,0.14)_1px,transparent_1px)] [background-size:64px_64px]" />
-          <div className="absolute left-[12%] top-[12%] h-[72%] w-[52%] border border-cream/18" />
-          <div className="absolute left-[24%] top-[20%] h-[60%] w-[42%] border border-cream/10" />
-          <div className="absolute bottom-[14%] left-[18%] h-px w-[48%] bg-gradient-to-r from-gold/0 via-gold/70 to-gold/0" />
-          <div className="absolute right-[12%] top-[18%] h-[54%] w-px bg-gradient-to-b from-cream/0 via-cream/35 to-cream/0" />
+          <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(243,238,229,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(243,238,229,0.14)_1px,transparent_1px)] [background-size:120px_120px]" />
+          <div className="absolute left-[14%] top-[6%] h-[82%] w-[72%] border border-cream/22" />
+          <div className="absolute left-[24%] top-[14%] h-[68%] w-[58%] border border-cream/14" />
+          <div className="absolute bottom-[10%] left-[18%] h-px w-[64%] bg-gradient-to-r from-gold/0 via-gold/70 to-gold/0" />
+          <div className="absolute right-[4%] top-[12%] h-[66%] w-px bg-gradient-to-b from-cream/0 via-cream/35 to-cream/0" />
           <div ref={bgLogoRef} className="absolute inset-0 flex items-center justify-center overflow-hidden">
             <Image
               src="/assets/firepoint/fp-bg-logo.png"
