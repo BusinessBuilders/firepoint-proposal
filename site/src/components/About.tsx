@@ -85,7 +85,7 @@ export default function About() {
             the other side of the table is looking for.
           </p>
           <p className="text-navy/75 text-[1.05rem] leading-relaxed mt-4">
-            Based in Holden, MA. Serving projects throughout Massachusetts and
+            Based in Rutland, MA. Serving projects throughout Massachusetts and
             New England.
           </p>
         </div>

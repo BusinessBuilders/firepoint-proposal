@@ -6,17 +6,17 @@ import { gsap, useGSAP } from "@/lib/gsap";
 const faqs = [
   {
     question: "What\u2019s your turnaround time?",
-    answer: "10 business days. Most projects completed ahead of schedule.",
+    answer: "10 business days for third-party plan reviews. Timelines for other project types vary \u2014 contact me to discuss your specific scope.",
   },
   {
     question: "What\u2019s your experience working with AHJs?",
     answer:
-      "I served as an Authority Having Jurisdiction for 10 years. I know exactly what AHJs look for because I was one.",
+      "I served as an Authority Having Jurisdiction for 10+ years. I know exactly what AHJs look for because I was one.",
   },
   {
     question: "How long have you been in the industry?",
     answer:
-      "12 years in fire protection \u2014 from field inspections to code consulting to third-party review.",
+      "12 years in fire protection \u2014 from field inspections to code consulting to third-party reviewer.",
   },
 ];
 
