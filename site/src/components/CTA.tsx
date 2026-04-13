@@ -42,7 +42,7 @@ export default function CTA() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "33e5039f-3837-4f93-9f13-3c3db05e21b4",
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
           subject: "New inquiry — Fire Point Consulting",
           from_name: "Fire Point Consulting Website",
           ...data,
