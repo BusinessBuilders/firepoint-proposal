@@ -78,7 +78,7 @@ export default function About() {
             </div>
             <div className="border-l border-gold/45 pl-4">
               <p className="text-[0.72rem] uppercase tracking-[0.24em] text-gold/82">
-                Holden, Massachusetts
+                Rutland, Massachusetts
               </p>
               <p className="mt-3 text-sm leading-relaxed text-cream/68">
                 Supporting fire departments, architects, developers, owners, and contractors.

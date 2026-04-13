@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="sand-section pt-2 pb-10 text-center">
       <p className="text-[0.72rem] uppercase tracking-[0.24em] text-navy/42">
-        &copy; 2026 Fire Point Consulting &middot; Holden, MA
+        &copy; 2026 Fire Point Consulting &middot; Rutland, MA
       </p>
       <nav aria-label="Footer navigation">
         <ul className="mt-4 flex justify-center gap-6">
