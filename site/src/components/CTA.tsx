@@ -26,12 +26,15 @@ export default function CTA() {
     e.preventDefault();
     setStatus("submitting");
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form));
+    const formData = new FormData(form);
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "");
+    formData.append("subject", "New inquiry — Fire Point Consulting");
+    formData.append("from_name", "Fire Point Consulting Website");
+    formData.append("cc", "donovan@business-builder.online");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY, subject: "New inquiry — Fire Point Consulting", from_name: "Fire Point Consulting Website", cc: "donovan@business-builder.online", ...data }),
+        body: formData,
       });
       const json = await res.json();
       if (json.success) { setStatus("success"); form.reset(); } else { setStatus("error"); }
