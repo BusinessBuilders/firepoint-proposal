@@ -27,7 +27,7 @@ export default function CTA() {
     setStatus("submitting");
     const form = e.currentTarget;
     const formData = new FormData(form);
-    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "");
+    formData.append("access_key", "33e5039f-3837-4f93-9f13-3c3db05e21b4");
     formData.append("subject", "New inquiry — Fire Point Consulting");
     formData.append("from_name", "Fire Point Consulting Website");
     formData.append("cc", "donovan@business-builder.online");
