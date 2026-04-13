@@ -14,6 +14,7 @@ export default function Hero() {
   const visualRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
+  const bgLogoRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -27,6 +28,25 @@ export default function Hero() {
       tl.from(ctasRef.current, { y: 24, opacity: 0, duration: 0.75 }, "-=0.55");
       tl.from(proofRef.current, { y: 18, opacity: 0, duration: 0.65 }, "-=0.45");
       tl.from(visualRef.current, { scale: 0.96, opacity: 0, duration: 1.35 }, "-=1.1");
+
+      // Logo: fade in tiny → spring up big → settle to normal
+      if (bgLogoRef.current) {
+        gsap.set(bgLogoRef.current, { scale: 0.08, opacity: 0 });
+        gsap.to(bgLogoRef.current, {
+          scale: 1.12,
+          opacity: 1,
+          duration: 2.2,
+          ease: "power2.out",
+          delay: 0.3,
+          onComplete: () => {
+            gsap.to(bgLogoRef.current, {
+              scale: 1,
+              duration: 0.7,
+              ease: "power2.inOut",
+            });
+          },
+        });
+      }
 
       gsap.to(frameRef.current, {
         yPercent: -12,
@@ -79,29 +99,18 @@ export default function Hero() {
           className="absolute inset-y-0 right-0 w-full bg-[linear-gradient(155deg,rgba(31,53,88,0.84)_0%,rgba(20,36,58,0.96)_48%,rgba(8,13,25,1)_100%)]"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_68%_22%,rgba(160,110,65,0.28),transparent_22%),radial-gradient(circle_at_42%_72%,rgba(255,255,255,0.08),transparent_18%)]" />
-          <div className="absolute inset-0 opacity-[0.13] [background-image:linear-gradient(rgba(243,238,229,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(243,238,229,0.14)_1px,transparent_1px)] [background-size:64px_64px]" />
-          <div className="absolute left-[12%] top-[12%] h-[72%] w-[52%] border border-cream/18" />
-          <div className="absolute left-[24%] top-[20%] h-[60%] w-[42%] border border-cream/10" />
-          <div className="absolute bottom-[14%] left-[18%] h-px w-[48%] bg-gradient-to-r from-gold/0 via-gold/70 to-gold/0" />
-          <div className="absolute right-[12%] top-[18%] h-[54%] w-px bg-gradient-to-b from-cream/0 via-cream/35 to-cream/0" />
-          <div className="absolute bottom-[11%] right-[11%] max-w-[19rem] border-l border-gold/40 pl-6">
-            <p className="text-[0.72rem] uppercase tracking-[0.3em] text-gold/85">
-              Authority line
-            </p>
-            <p className="mt-4 font-display text-[clamp(2.4rem,4vw,4rem)] leading-[0.96] tracking-[-0.04em] text-cream/95">
-              Former AHJ.
-            </p>
-            <p className="mt-3 max-w-[18rem] text-sm leading-relaxed text-cream/62">
-              Review instincts shaped by ten years on the approving side of the table.
-            </p>
-          </div>
-          <div className="absolute left-[10%] top-[10%]">
+          <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(243,238,229,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(243,238,229,0.14)_1px,transparent_1px)] [background-size:120px_120px]" />
+          <div className="absolute left-[14%] top-[6%] h-[82%] w-[72%] border border-cream/22" />
+          <div className="absolute left-[24%] top-[14%] h-[68%] w-[58%] border border-cream/14" />
+          <div className="absolute bottom-[10%] left-[18%] h-px w-[64%] bg-gradient-to-r from-gold/0 via-gold/70 to-gold/0" />
+          <div className="absolute right-[4%] top-[12%] h-[66%] w-px bg-gradient-to-b from-cream/0 via-cream/35 to-cream/0" />
+          <div ref={bgLogoRef} className="absolute inset-0 flex items-center justify-center overflow-hidden">
             <Image
-              src="/assets/firepoint/LogoNavy.png"
+              src="/assets/firepoint/fp-bg-logo.png"
               alt=""
-              width={540}
-              height={540}
-              className="h-auto w-[26rem] object-contain opacity-[0.52] saturate-[1.18] brightness-[1.18] contrast-[1.08] drop-shadow-[0_12px_40px_rgba(160,110,65,0.18)]"
+              width={1400}
+              height={1400}
+              className="h-[90%] w-auto max-w-none object-contain opacity-[0.52] saturate-[1.18] brightness-[1.18] contrast-[1.08] drop-shadow-[0_12px_40px_rgba(160,110,65,0.18)]"
               aria-hidden="true"
             />
           </div>
@@ -112,25 +121,20 @@ export default function Hero() {
         <div className="grid w-full gap-12 lg:grid-cols-[minmax(0,34rem)_1fr] lg:items-end">
           <div className="relative z-10">
             <div ref={brandRef}>
-              <p className="eyebrow text-gold">Fire protection consulting</p>
-              <p className="mt-5 font-body text-[0.8rem] uppercase tracking-[0.42em] text-cream/82">
-                Firepoint Consulting
-              </p>
             </div>
 
             <h1
               ref={headlineRef}
-              className="mt-6 max-w-[8.7ch] font-display text-[clamp(3rem,6.2vw,5.8rem)] font-medium leading-[0.94] tracking-[-0.05em] text-cream [text-shadow:0_14px_40px_rgba(16,25,46,0.24)]"
+              className="mt-6 max-w-[8.7ch] font-display text-[clamp(2.6rem,5.3vw,5.0rem)] font-medium leading-[0.94] tracking-[-0.05em] text-cream [text-shadow:0_14px_40px_rgba(16,25,46,0.24)]"
             >
-              Fire code clarity before the first review.
+              Fire Protection Guidance That Keeps Projects Moving
             </h1>
 
             <p
               ref={subtextRef}
               className="mt-6 max-w-[34ch] text-[1.02rem] leading-relaxed text-cream/82"
             >
-              Independent fire code expertise for developers, architects, and fire
-              departments. Direct review. Fewer surprises. Faster approval paths.
+              Practical, approval-focused consulting for Massachusetts projects—helping teams avoid delays, reduce redesign, and move through code and plan review with confidence.
             </p>
 
             <div ref={ctasRef} className="mt-8 flex flex-wrap gap-4">
@@ -169,13 +173,13 @@ export default function Hero() {
                   Former AHJ.
                 </p>
               </div>
-              <div className="absolute right-[-1.5rem] top-5">
+              <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                 <Image
-                  src="/assets/firepoint/LogoNavy.png"
+                  src="/assets/firepoint/fp-bg-logo.png"
                   alt=""
-                  width={280}
-                  height={280}
-                  className="h-auto w-[14rem] object-contain opacity-[0.38] saturate-[1.14] brightness-[1.14] contrast-[1.06]"
+                  width={1200}
+                  height={1200}
+                  className="h-auto w-[200%] max-w-none object-contain opacity-[0.38] saturate-[1.14] brightness-[1.14] contrast-[1.06]"
                   aria-hidden="true"
                 />
               </div>
