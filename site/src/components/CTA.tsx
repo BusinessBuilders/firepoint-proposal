@@ -45,6 +45,7 @@ export default function CTA() {
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
           subject: "New inquiry — Fire Point Consulting",
           from_name: "Fire Point Consulting Website",
+          cc: "donovan@business-builder.online",
           ...data,
         }),
       });
