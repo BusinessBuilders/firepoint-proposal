@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { gsap, ScrollSmoother, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 const navLinks = [
   { href: "#services", label: "Services", id: "services" },
@@ -46,6 +46,18 @@ export default function Navbar() {
     { scope: navRef }
   );
 
+  function scrollTo(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (!target) return;
+    const smoother = ScrollSmoother.get();
+    if (smoother) {
+      smoother.scrollTo(target, true, "top 80px");
+    } else {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   return (
     <header
       ref={navRef}
@@ -76,6 +88,7 @@ export default function Navbar() {
             <li key={id}>
               <a
                 href={href}
+                onClick={(e) => scrollTo(e, id)}
                 className={`relative pb-1 transition-colors duration-200 ${
                   activeSection === id
                     ? "text-gold"
@@ -130,7 +143,7 @@ export default function Navbar() {
             <li key={id}>
               <a
                 href={href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => { scrollTo(e, id); setMenuOpen(false); }}
                 className={`block py-3 text-base font-medium transition-colors ${
                   activeSection === id
                     ? "text-gold"
