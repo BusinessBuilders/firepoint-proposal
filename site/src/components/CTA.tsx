@@ -30,7 +30,6 @@ export default function CTA() {
     formData.append("access_key", "33e5039f-3837-4f93-9f13-3c3db05e21b4");
     formData.append("subject", "New inquiry — Fire Point Consulting");
     formData.append("from_name", "Fire Point Consulting Website");
-    formData.append("cc", "donovan@business-builder.online");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
